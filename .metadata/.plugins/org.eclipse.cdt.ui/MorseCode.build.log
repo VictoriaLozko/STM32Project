@@ -1,0 +1,20 @@
+21:33:41 **** Incremental Build of configuration Debug for project MorseCode ****
+make -j2 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F303xC -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "MorseCode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\STM32CubeIDE\workspace_1.3.0\MorseCode\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MorseCode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: MorseCode.elf
+ 
+arm-none-eabi-objdump -h -S  MorseCode.elf  > "MorseCode.list"
+arm-none-eabi-objcopy  -O binary  MorseCode.elf  "MorseCode.bin"
+Finished building: MorseCode.bin
+ 
+arm-none-eabi-size   MorseCode.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11168	     20	   2364	  13552	   34f0	MorseCode.elf
+Finished building: default.size.stdout
+ 
+Finished building: MorseCode.list
+ 
+
+21:34:15 Build Finished. 0 errors, 0 warnings. (took 34s.486ms)
+
